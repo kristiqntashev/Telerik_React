@@ -23,18 +23,13 @@ let people = [
 ];
 
 function calculate_scores(students){
-  let calculation = students
 
+  let calculation = students
   .map((x) => x.scores)
   .map((x) => x.map((i) => i.reduce((a, b) => (a + b) / i.length)))
   .map((x) => x.reduce((a, b) => (a + b) / x.length));
 
-  let counter = 0;
-
-  for (item in calculation){
-    students[counter].scores = calculation[counter]
-    counter++
-  }
-  return students;
+  return console.log(calculation);
 }
-people = calculate_scores(people);
+
+const pesho = calculate_scores(people);
