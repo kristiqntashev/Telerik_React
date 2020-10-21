@@ -45,12 +45,32 @@ const arr2 = [
   }
 ];
 
-function compare(otherArray){
-  return function(current){
-    return otherArray.filter(function(other){
+//Solution One
+function compareOne(first, second) {
+  const result = first;
+  for (const secondEl in second) {
+    for(const firstEl in first){
+      const test1 = first[firstEl];
+      const test2 = second[secondEl];
+      let found = JSON.stringify(first[firstEl])===JSON.stringify(second[secondEl]);
+      if (found) {
+        result.splice(firstEl,1);
+        break;
+      }
+    }
+  }
+  return result;
+}
+
+//Solution Two 
+function compareTwo(otherArray) {
+  return function (current) {
+    return otherArray.filter(function (other) {
       return other.id == current.id
     }).length == 0;
   }
 }
 
-const result = arr1.filter(compare(arr2));
+const result = arr1.filter(compareTwo(arr2));
+const result2 = compareOne(arr1, arr2);
+const pesho = 10;
