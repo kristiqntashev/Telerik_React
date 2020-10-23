@@ -47,11 +47,9 @@ const arr2 = [
 
 //Solution One
 function compareOne(first, second) {
-  const result = first;
+  const result = first.slice();
   for (const secondEl in second) {
     for(const firstEl in first){
-      const test1 = first[firstEl];
-      const test2 = second[secondEl];
       let found = JSON.stringify(first[firstEl])===JSON.stringify(second[secondEl]);
       if (found) {
         result.splice(firstEl,1);
@@ -71,6 +69,5 @@ function compareTwo(otherArray) {
   }
 }
 
-const result = arr1.filter(compareTwo(arr2));
-const result2 = compareOne(arr1, arr2);
-const pesho = 10;
+const result1 = compareOne(arr1, arr2);
+const result2 = arr1.filter(compareTwo(arr2));
