@@ -12,7 +12,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
-  "homepage": "http://kristiqntashev.github.io/test-react-rep",
+  "homepage": "http://kristiqntashev.github.io/Telerik_React",
   "author": "",
   "license": "ISC",
   "devDependencies": {
