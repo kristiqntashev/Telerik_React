@@ -1,16 +1,22 @@
 const path = require("path");
 const webpack = require("webpack");
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     entry: "./src/index.js",
     mode: "development",
+    output: {
+        path: path.resolve(__dirname, './dist'),
+        filename: 'bundle.js'
+    },
+    plugins: [new HtmlWebpackPlugin()],
     module: {
-        rules : [
+        rules: [
             {
                 test: /\.(js|jsx)$/,
                 exclude: /(node_modules|browser_components)/,
                 loader: "babel-loader",
-                options: { 
+                options: {
                     presets: ["@babel/env"],
                     plugins: ['react-hot-loader/babel']
                 }
