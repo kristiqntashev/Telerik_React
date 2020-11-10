@@ -1,6 +1,7 @@
 const path = require("path");
 const webpack = require("webpack");
-var HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
+
 
 module.exports = {
     entry: "./src/index.js",
@@ -9,7 +10,13 @@ module.exports = {
         path: path.resolve(__dirname, './dist'),
         filename: 'bundle.js'
     },
-    plugins: [new HtmlWebpackPlugin()],
+    plugins: [
+        new CopyPlugin({
+          patterns: [
+            { from: 'public', to: '' },
+          ],
+        }),
+      ],
     module: {
         rules: [
             {
